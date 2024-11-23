@@ -7,7 +7,7 @@
         path: /etc/postfix/network_table
         line: "{{ IPADDRESS OK }}"
 
-- name: Run Postmap
+ - name: Run Postmap
    become: true
    hosts: smtp_relay
    tasks:
