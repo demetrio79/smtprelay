@@ -10,4 +10,5 @@
 - name: Run Postmap
   hosts: smtp_relay
   tasks:
+    - name: Running postmap
       shell: /usr/sbin/postmap /etc/postfix/network_table
