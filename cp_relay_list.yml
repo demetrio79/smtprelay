@@ -1,6 +1,7 @@
 - name: Copy network_table to SMTP Relay
   hosts: smtp_relay
   tasks:
+    - name: copying file with playbook
       become: true
       copy:
         src: /home/semaphore/network_table
