@@ -1,0 +1,14 @@
+- name: Copy network_table to SMTP Relay
+  hosts: server
+  tasks:
+    - name: copying file with playbook
+      become: true
+      copy:
+        src: /home/semaphore/network_table
+        dest: /etc/postfix/network_table
+
+- name: Run Postmap
+  hosts: server
+  tasks:
+    - name: Running postmap
+      shell: postmap /etc/postfix/network_table
