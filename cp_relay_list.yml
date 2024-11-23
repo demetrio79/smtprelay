@@ -1,5 +1,5 @@
 - name: Copy network_table to SMTP Relay
-  hosts: server
+  hosts: smtp_relay
   tasks:
     - name: copying file with playbook
       become: true
@@ -8,7 +8,7 @@
         dest: /etc/postfix/network_table
 
 - name: Run Postmap
-  hosts: server
+  hosts: smtp_relay
   tasks:
     - name: Running postmap
       shell: postmap /etc/postfix/network_table
