@@ -1,15 +1,15 @@
-- name: Add IP Address to network_table
-  hosts: smtp_relay
-  tasks:
+ - name: Add IP Address to network_table
+   become: true
+   hosts: smtp_relay
+   tasks:
     - name: Adding IP Address
-      ansible.builtin.lineinfile:
-      become: true
-      path: /etc/postfix/network_table
-      line: "{{ IPADDRESS }}"
+        ansible.builtin.lineinfile:
+        path: /etc/postfix/network_table
+        line: "{{ IPADDRESS }}"
 
-- name: Run Postmap
-  become: true
-  hosts: smtp_relay
-  tasks:
-    - name: Running postmap
-      shell: /usr/sbin/postmap /etc/postfix/network_table
+  - name: Run Postmap
+    become: true
+    hosts: smtp_relay
+    tasks:
+      - name: Running postmap
+        shell: /usr/sbin/postmap /etc/postfix/network_table
