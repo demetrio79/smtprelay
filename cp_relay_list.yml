@@ -1,15 +1,15 @@
-- name: Copy network_table to SMTP Relay
+- name: Add IP Address to network_table
   hosts: smtp_relay
   tasks:
-    - name: copying file with playbook
+    - name: Adding IP Address
+      ansible.builtin.lineinfile:
       become: true
-      copy:
-        src: /home/semaphore/network_table
-        dest: /etc/postfix/network_table
+      path: /etc/postfix/network_table
+      line: {{ IPADDRESS }}
 
 - name: Run Postmap
   become: true
   hosts: smtp_relay
   tasks:
     - name: Running postmap
-      shell: sudo /usr/sbin/postmap /etc/postfix/network_table
+      shell: /usr/sbin/postmap /etc/postfix/network_table
