@@ -6,10 +6,10 @@
       ansible.builtin.lineinfile:
         path: /etc/postfix/network_table
         line: "{{ IPADDRESS OK }}"
-
-  - name: Run Postmap
-    become: true
-    hosts: smtp_relay
-    tasks:
+        
+    - name: Run Postmap
+      become: true
+      hosts: smtp_relay
+      tasks:
       - name: Running postmap
         shell: /usr/sbin/postmap /etc/postfix/network_table
