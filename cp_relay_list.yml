@@ -1,5 +1,6 @@
  - name: Add IP Address to network_table
    become: yes
+   become_user: ansible.arezzo
    hosts: smtp_relay
    tasks:
     - name: Adding IP Address
