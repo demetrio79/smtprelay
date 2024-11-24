@@ -1,5 +1,5 @@
  - name: Add IP Address to network_table
-   become: true
+   become: yes
    hosts: smtp_relay
    tasks:
     - name: Adding IP Address
@@ -8,7 +8,7 @@
         line: "{{ IPADDRESS }}"
 
  - name: Run Postmap
-   become: true
+   become: yes
    hosts: smtp_relay
    tasks:
     - name: Running postmap
