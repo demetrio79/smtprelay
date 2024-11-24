@@ -5,7 +5,7 @@
     - name: Adding IP Address
       ansible.builtin.lineinfile:
         path: /etc/postfix/network_table
-        line: "{{ IPADDRESS }}"
+        line: "{{ IPADDRESS " OK"}}"
 
  - name: Run Postmap
    become: yes
