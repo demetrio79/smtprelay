@@ -1,6 +1,5 @@
  - name: Add IP Address to network_table
-   become: yes
-   become_user: ansible.arezzo
+   become: no
    hosts: smtp_relay
    tasks:
     - name: Adding IP Address
@@ -9,8 +8,8 @@
         line: "{{ IPADDRESS }}"
 
  - name: Run Postmap
-   become: yes
+   become: no
    hosts: smtp_relay
    tasks:
     - name: Running postmap
-      shell: sudo postmap /etc/postfix/network_table
+      shell: postmap /etc/postfix/network_table
