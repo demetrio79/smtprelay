@@ -3,6 +3,8 @@
    hosts: smtp_relay
    tasks:
     - name: Adding IP Address
+      become: yes
+      become_user: root
       ansible.builtin.lineinfile:
         path: /etc/postfix/network_table
         line: "{{ IPADDRESS }}"
@@ -12,4 +14,6 @@
    hosts: smtp_relay
    tasks:
     - name: Running postmap
+      become: yes
+      become_user: root
       shell: postmap /etc/postfix/network_table

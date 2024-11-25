@@ -1,0 +1,11 @@
+  - name: Remove IP Address
+    hosts: smtp_server
+    tasks:
+      - name: "Validate if IP Address is present"
+        become: yes
+        become_user: root
+        lineinfile:
+          path: /etc/postfix/network_table
+          regexp: "{{ IPADDRESS }}" 
+          state: absent
+          backup: yes
