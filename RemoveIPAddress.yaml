@@ -1,5 +1,5 @@
   - name: Remove IP Address
-    hosts: smtp_server
+    hosts: smtp_relay
     tasks:
       - name: "Validate if IP Address is present"
         become: yes
