@@ -9,3 +9,11 @@
           regexp: "{{ IPADDRESS }}" 
           state: absent
           backup: yes
+      
+  - name: Run Postmap
+    hosts: smtp_relay
+    tasks:
+      - name: Running postmap
+        become: yes
+        become_user: root
+        shell: postmap /etc/postfix/network_table

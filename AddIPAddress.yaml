@@ -1,5 +1,4 @@
  - name: Add IP Address to network_table
-   become: no
    hosts: smtp_relay
    tasks:
     - name: Adding IP Address
@@ -10,7 +9,6 @@
         line: "{{ IPADDRESS }}"
 
  - name: Run Postmap
-   become: no
    hosts: smtp_relay
    tasks:
     - name: Running postmap
